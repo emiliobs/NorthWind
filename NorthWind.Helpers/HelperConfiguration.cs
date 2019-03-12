@@ -7,8 +7,7 @@
         public static AppConfiguration GetAppConfiguration(string cofigurationFile = "App.Json")
         {
             IConfiguration configuration = new ConfigurationBuilder()
-                .AddJsonFile(cofigurationFile, optional: false).
-                Build();
+                                         .AddJsonFile(cofigurationFile, optional: false).Build();
 
             return configuration.Get<AppConfiguration>();
         }
