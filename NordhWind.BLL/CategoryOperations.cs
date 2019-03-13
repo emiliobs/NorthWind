@@ -37,7 +37,7 @@
         public bool DeleteWithLog(int categoryId)
         {
             var result = false;
-            using (var repository = NorthWindRepositoryFactory.GetNorthWindRepository())
+            using (var repository = NorthWindRepositoryFactory.GetNorthWindRepository(true))
             {
                 result = repository.DeleteCategory(categoryId);
                 var log = new Log()

@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-
-namespace NorthWind.Web
+﻿namespace NorthWind.Web
 {
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+    using NordhWind.BLL;
+    using NorthWind.Services.Repositories;
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -31,6 +28,8 @@ namespace NorthWind.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddSingleton(typeof(ICategoryOperations), f => OperationsFactory.GetCategoryOperations());
+            services.AddSingleton(typeof(ILogOperations),      f => OperationsFactory.GetLogOperations());
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
   </ItemGroup>
 
 
@@ -16,6 +17,13 @@
     <ProjectReference Include="..\NordhWind.BLL\NordhWind.BLL.csproj" />
     <ProjectReference Include="..\NorthWind.Entities\NorthWind.Entities.csproj" />
     <ProjectReference Include="..\NorthWind.Services\NorthWind.Services.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
